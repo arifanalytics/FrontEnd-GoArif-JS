@@ -4,6 +4,10 @@ import React from 'react';
 import Loading from 'dan-components/Loading';
 import loadable from '../utils/loadable';
 
+export const ChatPage = loadable(() =>
+  import ('./ArifScreen/ChatPage'), {
+    fallback: <Loading />,
+  });
 // Landing Page
 export const HomePage = loadable(() =>
   import ('./LandingPage/HomePage'), {

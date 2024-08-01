@@ -6,10 +6,10 @@ const initialState = {
   theme: 'skyBlueTheme',
   direction: 'ltr',
   type: 'light', // light or dark
-  gradient: true, // true or false
-  decoration: true, // true or false
+  gradient: false, // true or false
+  decoration: false, // true or false
   bgPosition: 'half', // half, header, full
-  layout: 'left-sidebar', // big-sidebar, left-sidebar, top-navigation, mega-menu
+  layout: 'big-sidebar', // big-sidebar, left-sidebar, top-navigation, mega-menu
   /* End settings */
   palette: [
     { name: 'Ocean Sky', value: 'skyBlueTheme' },

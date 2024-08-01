@@ -100,9 +100,9 @@ function RegisterForm() {
         <Typography variant="h4" className={classes.title} gutterBottom>
           Register
         </Typography>
-        <Typography variant="caption" className={classes.subtitle} gutterBottom align="center">
+        {/* <Typography variant="caption" className={classes.subtitle} gutterBottom align="center">
           Lorem ipsum dolor sit amet
-        </Typography>
+        </Typography> */}
         <Tabs
           value={tab}
           onChange={handleChangeTab}
@@ -112,7 +112,7 @@ function RegisterForm() {
           className={classes.tab}
         >
           <Tab label="With Email" />
-          <Tab label="With Social Media" />
+          {/* <Tab label="With Social Media" /> */}
         </Tabs>
         {tab === 0 && (
           <section className={classes.formWrap}>

@@ -9,9 +9,9 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Typography from '@mui/material/Typography';
 import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import AllInclusive from '@mui/icons-material/AllInclusive';
-import Brightness5 from '@mui/icons-material/Brightness5';
-import People from '@mui/icons-material/People';
+// import AllInclusive from '@mui/icons-material/AllInclusive';
+// import Brightness5 from '@mui/icons-material/Brightness5';
+// import People from '@mui/icons-material/People';
 import ArrowForward from '@mui/icons-material/ArrowForward';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
@@ -23,7 +23,7 @@ import * as yup from 'yup';
 import brand from 'dan-api/dummy/brand';
 import logo from 'dan-images/logo.svg';
 import useStyles from './user-jss';
-import { ContentDivider } from '../Divider';
+// import { ContentDivider } from '../Divider';
 
 // validation functions
 const validationSchema = yup.object({
@@ -95,26 +95,9 @@ function LoginForm() {
         <Typography variant="h4" className={classes.title} gutterBottom>
           Sign In
         </Typography>
-        <Typography variant="caption" className={classes.subtitle} gutterBottom align="center">
+        {/* <Typography variant="caption" className={classes.subtitle} gutterBottom align="center">
           Lorem ipsum dolor sit amet
-        </Typography>
-        <section className={classes.socmedLogin}>
-          <div className={classes.btnArea}>
-            <Button variant="outlined" size="small" className={classes.redBtn} type="button">
-              <AllInclusive className={cx(classes.leftIcon, classes.iconSmall)} />
-              Socmed 1
-            </Button>
-            <Button variant="outlined" size="small" className={classes.blueBtn} type="button">
-              <Brightness5 className={cx(classes.leftIcon, classes.iconSmall)} />
-              Socmed 2
-            </Button>
-            <Button variant="outlined" size="small" className={classes.cyanBtn} type="button">
-              <People className={cx(classes.leftIcon, classes.iconSmall)} />
-              Socmed 3
-            </Button>
-          </div>
-          <ContentDivider content="Or sign in with email" />
-        </section>
+        </Typography> */}
         <section className={classes.formWrap}>
           <form onSubmit={formik.handleSubmit}>
             <div>

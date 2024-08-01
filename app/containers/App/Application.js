@@ -34,7 +34,7 @@ import {
   Photos, Pricing, CheckoutPage,
   Error, Settings, HelpSupport,
   MapMarker, MapDirection, SearchMap,
-  TrafficIndicator, StreetViewMap, NotFound
+  TrafficIndicator, StreetViewMap, NotFound, ChatPage
 } from '../pageListAsync';
 
 function Application(props) {
@@ -45,6 +45,7 @@ function Application(props) {
       <Routes>
         { /* Home */ }
         <Route path="/" element={<PersonalDashboard/>} />
+        <Route path="chat-app" element={<ChatPage/>}/>
         <Route path="dashboard/sales-marketing" element={<CrmDashboard/>} />
         <Route path="dashboard/cryptocurrency" element={<CryptoDashboard/>} />
         { /* Widgets */ }

@@ -5,22 +5,22 @@ import { Link } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
-import Info from '@mui/icons-material/Info';
-import Warning from '@mui/icons-material/Warning';
-import Check from '@mui/icons-material/CheckCircle';
-import Error from '@mui/icons-material/RemoveCircle';
+// import Info from '@mui/icons-material/Info';
+// import Warning from '@mui/icons-material/Warning';
+// import Check from '@mui/icons-material/CheckCircle';
+// import Error from '@mui/icons-material/RemoveCircle';
 import ExitToApp from '@mui/icons-material/ExitToApp';
-import Badge from '@mui/material/Badge';
+// import Badge from '@mui/material/Badge';
 import Divider from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
+// import ListItemText from '@mui/material/ListItemText';
+// import ListItemAvatar from '@mui/material/ListItemAvatar';
 import dummy from 'dan-api/dummy/dummyContents';
-import messageStyles from 'dan-styles/Messages.scss';
-import avatarApi from 'dan-api/images/avatars';
-import link from 'dan-api/ui/link';
+// import messageStyles from 'dan-styles/Messages.scss';
+// import avatarApi from 'dan-api/images/avatars';
+// import link from 'dan-api/ui/link';
 import useStyles from './header-jss';
 
 function UserMenu(props) {
@@ -52,11 +52,11 @@ function UserMenu(props) {
         color="inherit"
         className={cx(classes.notifIcon, dark ? classes.dark : classes.light)}
         size="large">
-        <Badge className={classes.badge} badgeContent={4} color="secondary">
+        {/* <Badge className={classes.badge} badgeContent={4} color="secondary">
           <i className="ion-ios-notifications-outline" />
-        </Badge>
+        </Badge> */}
       </IconButton>
-      <Menu
+      {/* <Menu
         id="menu-notification"
         anchorEl={anchorEl}
         anchorOrigin={{
@@ -128,7 +128,7 @@ function UserMenu(props) {
             <ListItemText primary="Suspendisse pharetra pulvinar sollicitudin. Aenean ut orci eu odio cursus lobortis eget tempus velit. " className={classes.textNotif} secondary="Jan 9, 2016" />
           </div>
         </MenuItem>
-      </Menu>
+      </Menu> */}
       <Button onClick={handleMenu('user-setting')}>
         <Avatar
           alt={dummy.user.name}
@@ -149,16 +149,16 @@ function UserMenu(props) {
         open={openMenu === 'user-setting'}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose} component={Link} to={link.profile}>My Profile</MenuItem>
+        {/* <MenuItem onClick={handleClose} component={Link} to={link.profile}>My Profile</MenuItem>
         <MenuItem onClick={handleClose} component={Link} to={link.calendar}>My Calendar</MenuItem>
         <MenuItem onClick={handleClose} component={Link} to={link.email}>
           My Inbox
           <ListItemIcon>
             <Badge className={cx(classes.badge, classes.badgeMenu)} badgeContent={2} color="secondary" />
           </ListItemIcon>
-        </MenuItem>
+        </MenuItem> */}
         <Divider />
-        <MenuItem onClick={handleClose} component={Link} to="/">
+        <MenuItem onClick={handleClose} component={Link} to="/login">
           <ListItemIcon>
             <ExitToApp />
           </ListItemIcon>
