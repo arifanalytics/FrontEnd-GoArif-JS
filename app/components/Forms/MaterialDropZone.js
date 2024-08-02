@@ -89,7 +89,7 @@ function MaterialDropZone(props) {
     });
   }, [files]);
 
-  const fileSizeLimit = maxSize || 3000000;
+  const fileSizeLimit = maxSize || 20000000;
   const DeleteBtn = ({ file, index }) => ( // eslint-disable-line
     <div className="middle">
       <IconButton onClick={() => handleRemove(file, index)} size="large">
@@ -139,6 +139,7 @@ function MaterialDropZone(props) {
         acceptClassName="stripes"
         rejectClassName="rejectStripes"
         maxSize={fileSizeLimit}
+        minSize={100}
         ref={(node) => { dropzoneRef = node; }}
         {...rest}
       >
