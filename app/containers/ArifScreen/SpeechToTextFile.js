@@ -72,7 +72,7 @@ function SpeechToTextFile() {
     setName(event.target.value);
   };
 
-  const handleTranskrip = async () => {
+  const handleTranscribe = async () => {
     console.log(files[0]);
     setshowButton(false);
     if (files.length === 0) {
@@ -90,7 +90,7 @@ function SpeechToTextFile() {
 
     try {
       const response = await axios.post(
-        'https://arifbackend-upm3c5mlxq-et.a.run.app/Transkrip/SpeechFileToText',
+        'https://arifbackend-upm3c5mlxq-et.a.run.app/Transcribe/SpeechFileToText',
         formData,
         {
           headers: {
@@ -129,7 +129,7 @@ function SpeechToTextFile() {
             {files.length !== 0 && (<div>{String(files[0].name)}</div>)}
             <form className={classes.leftSection} autoComplete="off">
               <FormControl size="large" variant="standard" className={classes.formControl}>
-                <InputLabel htmlFor="languange-simple">Pilih Bahasa Transkrip</InputLabel>
+                <InputLabel htmlFor="languange-simple">Pilih Bahasa Transcribe</InputLabel>
                 <Select
                   variant="standard"
                   value={dataState.languange}
@@ -157,10 +157,10 @@ function SpeechToTextFile() {
                 className={classes.button}
                 fullWidth
                 variant="contained"
-                onClick={handleTranskrip}
+                onClick={handleTranscribe}
                 color="secondary"
               >
-                Transkrip
+                Transcribe
               </Button>
             )}
             {!showButton && <CircularProgress fullWidth className={classes.progress} />}

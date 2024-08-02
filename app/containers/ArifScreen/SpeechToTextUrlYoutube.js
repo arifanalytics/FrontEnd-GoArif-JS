@@ -78,7 +78,7 @@ function SpeechToTextUrlYoutube() {
     seturl(event.target.value);
   };
 
-  const handleTranskrip = async () => {
+  const handleTranscribe = async () => {
     setshowButton(false);
 
     if (!urllink) {
@@ -100,7 +100,7 @@ function SpeechToTextUrlYoutube() {
 
     try {
       const response = await axios.post(
-        'https://arifbackend-upm3c5mlxq-et.a.run.app/Transkrip/SpeechYoutubeToText',
+        'https://arifbackend-upm3c5mlxq-et.a.run.app/Transcribe/SpeechYoutubeToText',
         requestData,
         {
           headers: {
@@ -129,7 +129,7 @@ function SpeechToTextUrlYoutube() {
                 <Input id="url" value={urllink} onChange={handleChangeUrl} />
               </FormControl>
               <FormControl size="large" variant="standard" className={classes.formControl}>
-                <InputLabel htmlFor="languange-simple">Pilih Bahasa Transkrip</InputLabel>
+                <InputLabel htmlFor="languange-simple">Pilih Bahasa Transcribe</InputLabel>
                 <Select
                   variant="standard"
                   value={dataState.languange}
@@ -157,10 +157,10 @@ function SpeechToTextUrlYoutube() {
                 className={classes.button}
                 fullWidth
                 variant="contained"
-                onClick={handleTranskrip}
+                onClick={handleTranscribe}
                 color="secondary"
               >
-                Transkrip
+                Transcribe
               </Button>
             )}
             {!showButton && <CircularProgress className={classes.progress} />}
