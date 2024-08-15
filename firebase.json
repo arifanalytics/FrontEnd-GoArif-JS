@@ -1,7 +1,7 @@
 {
     "hosting": {
       "site": "goarif",
-      "public": "dist",
+      "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
