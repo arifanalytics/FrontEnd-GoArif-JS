@@ -35,7 +35,8 @@ import {
   Error, Settings, HelpSupport,
   MapMarker, MapDirection, SearchMap,
   TrafficIndicator, StreetViewMap, NotFound, ChatPage,
-  SpeechToTextUrl, SpeechToTextFile, SpeechToTextUrlDrive, SpeechToTextUrlYoutube
+  SpeechToTextUrl, SpeechToTextFile, SpeechToTextUrlDrive, SpeechToTextUrlYoutube,
+  ChangePassword
 } from '../pageListAsync';
 
 function Application(props) {
@@ -51,6 +52,8 @@ function Application(props) {
         <Route path="SpeechToTextFile" element={<SpeechToTextFile />} />
         <Route path="SpeechToTextUrlDrive" element={<SpeechToTextUrlDrive />} />
         <Route path="SpeechToTextUrlYoutube" element={<SpeechToTextUrlYoutube />} />
+
+        <Route path="change-password" element={<ChangePassword />} />
 
         <Route path="dashboard/sales-marketing" element={<CrmDashboard />} />
         <Route path="dashboard/cryptocurrency" element={<CryptoDashboard />} />

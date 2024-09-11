@@ -158,6 +158,13 @@ function UserMenu(props) {
           </ListItemIcon>
         </MenuItem> */}
         <Divider />
+        <MenuItem onClick={handleClose} component={Link} to="/app/change-password">
+          <ListItemIcon>
+            <ExitToApp />
+          </ListItemIcon>
+          Change Password
+        </MenuItem>
+        <Divider />
         <MenuItem onClick={handleClose} component={Link} to="/login">
           <ListItemIcon>
             <ExitToApp />

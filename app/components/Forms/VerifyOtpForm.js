@@ -2,6 +2,8 @@ import React, { Fragment, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ArrowForward from '@mui/icons-material/ArrowForward';
@@ -13,12 +15,13 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import brand from 'dan-api/dummy/brand';
 import logo from 'dan-images/logo.svg';
 import { useSelector } from 'react-redux';
-import { ErrorMessage, useFormik } from 'formik';
+import { useFormik } from 'formik';
 import * as yup from 'yup';
-import Input from '@mui/material/Input';
-import axios from 'axios';
 import useStyles from './user-jss';
+import Input from '@mui/material/Input';
+import axios from 'axios'; // Add axios for HTTP requests
 
+// validation functions
 const validationSchema = yup.object({
 });
 
@@ -26,60 +29,67 @@ const LinkBtn = React.forwardRef(function LinkBtn(props, ref) { // eslint-disabl
   return <NavLink to={props.to} {...props} />; // eslint-disable-line
 });
 
-function LoginForm() {
+function VerifyOtpForm() {
   const { classes, cx } = useStyles();
   const deco = useSelector((state) => state.ui.decoration);
 
-  const tab = 0;
+  const [emaillink, setemail] = useState('');
+  const [otplink, setotp] = useState('');
 
-  const [emailInput, setemail] = useState('');
-  const [passwordInput, setpassword] = useState('');
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+      passwordConfirmation: '',
+      termsAndConditions: false
+    },
+    validationSchema,
+    onSubmit: async () => {
 
+      const requestData = {
+        email: emaillink,
+        otp: otplink,
+      };
+
+      try {
+        const response = await axios.post(
+          'https://arifbackend-upm3c5mlxq-et.a.run.app/Auth/VerifyOtp',
+          requestData,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer YOUR_ACCESS_TOKEN',
+            },
+          }
+        );
+        console.log('sukses Verify OTP');
+        alert('Sukses Verify OTP');
+        alert(response.data.message);
+      } catch (error) {
+        console.error('Error during verify otp:', error);
+        alert('Error during verify otp. Please try again.');
+      } finally {
+        console.log('Finally block');
+      }
+
+    },
+  });
+
+  const [tab, setTab] = useState(0);
+ 
   const mdUp = useMediaQuery(theme => theme.breakpoints.up('md'));
   const mdDown = useMediaQuery(theme => theme.breakpoints.down('md'));
 
   const handleChangeEmail = event => {
     setemail(event.target.value);
   };
-  const handleChangePassword = event => {
-    setpassword(event.target.value);
+  const handleChangeOtp = event => {
+    setotp(event.target.value);
   };
 
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-      password: ''
-    },
-    validationSchema,
-    onSubmit: async () => {
-      const requestData = {
-        email: emailInput,
-        password: passwordInput,
-      };
-
-      try {
-        const response = await axios.post(
-          'https://arifbackend-upm3c5mlxq-et.a.run.app/Auth/Login',
-          requestData,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: 'Bearer YOUR_ACCESS_TOKEN',
-            },
-          }
-        );
-        console.log('Sukses login');
-        alert('Sukses login');
-        console.log(response.data.accessToken);
-        window.location.href = '/app/SpeechToTextFile';
-      } catch (error) {
-        console.error('Error during login:', ErrorMessage);
-        alert('Error during login', ErrorMessage);
-      } finally {
-        console.log('Finally block');
-      }
-    },
-  });
+  const handleChangeTab = (event, value) => {
+    setTab(value);
+  };
 
   return (
     <Fragment>
@@ -96,37 +106,47 @@ function LoginForm() {
               <img src={logo} alt={brand.name} />
               {brand.name}
             </NavLink>
-            <Button size="small" className={classes.buttonLink} component={LinkBtn} to="/register">
+            <Button size="small" className={classes.buttonLink} component={LinkBtn} to="/login">
               <Icon className={classes.icon}>arrow_forward</Icon>
-              Don&apos;t have account ?
+              Already have account ?
             </Button>
           </div>
         )}
         <Typography variant="h4" className={classes.title} gutterBottom>
-          Login
+          Verify OTP
         </Typography>
         <Typography variant="caption" className={classes.subtitle} gutterBottom align="center">
-          Input your Email & Password
+          Lorem ipsum dolor sit amet
         </Typography>
-
+        <Tabs
+          value={tab}
+          onChange={handleChangeTab}
+          indicatorColor="secondary"
+          textColor="secondary"
+          centered
+          className={classes.tab}
+        >
+          <Tab label="With Email" />
+          <Tab label="With Social Media" />
+        </Tabs>
         {tab === 0 && (
           <section className={classes.formWrap}>
             <form onSubmit={formik.handleSubmit}>
               <div>
 
                 <FormControl variant="standard" className={classes.formControl}>
-                  <Input id="email" placeholder="E-mail" value={emailInput} onChange={handleChangeEmail} />
+                  <Input id="email" value={emaillink} onChange={handleChangeEmail} />
                 </FormControl>
 
                 <FormControl variant="standard" className={classes.formControl}>
-                  <Input type="password" id="password" placeholder="Password" value={passwordInput} onChange={handleChangePassword} />
+                  <Input id="otp" value={otplink} onChange={handleChangeOtp} />
                 </FormControl>
 
               </div>
-
+              
               <div className={classes.btnArea}>
                 <Button variant="contained" color="primary" type="submit" disabled={formik.isSubmitting}>
-                  Submit
+                  Continue
                   <ArrowForward className={cx(classes.rightIcon, classes.iconSmall)} />
                 </Button>
               </div>
@@ -154,4 +174,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default VerifyOtpForm;
