@@ -24,6 +24,12 @@ export const SpeechToTextFile = loadable(() =>
   import('./ArifScreen/SpeechToTextFile'), {
   fallback: <Loading />,
 });
+
+export const ChangePassword = loadable(() =>
+  import('./ArifScreen/ChangePassword'), {
+  fallback: <Loading />,
+});
+
 // Landing Page
 export const HomePage = loadable(() =>
   import('./LandingPage/HomePage'), {
@@ -309,6 +315,10 @@ export const RadarPolarCharts = loadable(() =>
 });
 
 // Pages
+export const VerifyOtp = loadable(() =>
+  import('./Pages/Users/VerifyOtp'), {
+  fallback: <Loading />,
+});
 export const Login = loadable(() =>
   import('./Pages/Users/Login'), {
   fallback: <Loading />,

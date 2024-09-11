@@ -11,6 +11,7 @@ import {
   HomePage, SliderPage,
   Login, LoginV2, LoginV3,
   Register, RegisterV2, RegisterV3,
+  VerifyOtp,
   ResetPassword, LockScreen,
   ComingSoon, Maintenance,
   NotFoundDedicated
@@ -35,6 +36,7 @@ function App(props) {
             <Route path="register" element={<Register />} />
             <Route path="register-v2" element={<RegisterV2 />} />
             <Route path="register-v3" element={<RegisterV3 />} />
+            <Route path="verifyotp" element={<VerifyOtp />} />
             <Route path="reset-password" element={<ResetPassword />} />
             <Route path="lock-screen" element={<LockScreen />} />
             <Route path="maintenance" element={<Maintenance />} />

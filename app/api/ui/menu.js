@@ -283,6 +283,12 @@ module.exports = [
         title: true,
       },
       {
+        key: 'verifyotp',
+        name: 'Verify OTP',
+        link: '/verifyotp',
+        icon: 'ion-ios-person-outline'
+      },
+      {
         key: 'login',
         name: 'Login',
         link: '/login',

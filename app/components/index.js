@@ -65,6 +65,7 @@ export EmptyData from './Tables/EmptyData';
 // Form
 export Notification from './Notification/Notification';
 export MaterialDropZone from './Forms/MaterialDropZone';
+export VerifyOtpForm from './Forms/VerifyOtpForm';
 export LoginForm from './Forms/LoginForm';
 export LoginFormV2 from './Forms/LoginFormV2';
 export LoginFormV3 from './Forms/LoginFormV3';
